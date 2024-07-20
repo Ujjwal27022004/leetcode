@@ -1,0 +1,30 @@
+class Solution {
+    public String losingPlayer(int x, int y) {
+        int count = 0;
+        int sum = 75*x + 10*y;
+        while(sum>=115){
+
+            if(x<1){
+                break;
+            }else{
+            sum = sum - 75;
+            x = x-1;
+            }
+            if(y < 4){
+                break;
+            }
+            else{
+                sum = sum-40;
+                y = y-4;
+            }
+
+            count++;
+        }
+
+        if(count%2 == 1){
+            return "Alice";
+        }
+        return "Bob";
+
+    }
+}
