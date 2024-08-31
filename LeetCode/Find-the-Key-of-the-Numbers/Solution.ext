@@ -1,0 +1,39 @@
+class Solution {
+    public int generateKey(int num1, int num2, int num3) {
+        // Convert numbers to strings
+        String n1 = String.valueOf(num1);
+        String n2 = String.valueOf(num2);
+        String n3 = String.valueOf(num3);
+        String ans = "";
+
+        // Pad strings with leading zeros to ensure length of 4
+        while (n1.length() < 4) {
+            n1 = '0' + n1;
+        }
+        while (n2.length() < 4) {
+            n2 = '0' + n2;
+        }
+        while (n3.length() < 4) {
+            n3 = '0' + n3;
+        }
+
+        // Generate the key based on the smallest digit at each position
+        for (int i = 0; i < 4; i++) {
+            int a = Character.getNumericValue(n1.charAt(i));
+            int b = Character.getNumericValue(n2.charAt(i));
+            int c = Character.getNumericValue(n3.charAt(i));
+
+            // Add the smallest digit to the answer string
+            if (a <= b && a <= c) {
+                ans += a;
+            } else if (b <= a && b <= c) {
+                ans += b;
+            } else {
+                ans += c;
+            }
+        }
+
+        // Convert the answer string back to an integer and return
+        return Integer.parseInt(ans);
+    }
+}
