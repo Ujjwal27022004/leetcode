@@ -1,0 +1,3 @@
+Input: s = "dfa12321afd"
+Output: 2
+Explanation: The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
